@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Heroes - My Hero Academia</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: url('images/Heroes_background_image.jpg') center center / cover no-repeat fixed;
+      transition: background-color 0.3s, color 0.3s;
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: var(--bs-body-bg);
+    }
+
+    .header-link {
+      border: 1px solid black;
+      padding: 6px 12px;
+      margin: 0 10px;
+      text-decoration: none;
+      color: inherit;
+      border-radius: 6px;
+      transition: background-color 0.3s;
+    }
+
+    .header-link:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    .toggle-btn {
+      border: 1px solid black;
+      padding: 6px 10px;
+      background-color: transparent;
+      border-radius: 6px;
+    }
+
+    .image-box {
+      position: relative;
+      border: 2px solid black;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+    }
+
+    .image-box:hover {
+      transform: scale(1.02);
+    }
+
+    .image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .image-label {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      padding: 5px;
+    }
+
+    .hero-card-info {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .hero-img-box {
+      border: 2px solid black;
+      border-radius: 10px;
+      overflow: hidden;
+      flex: 0 0 250px;
+    }
+
+    .hero-img-box img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .hero-text-box {
+      flex: 1;
+      border: 2px solid black;
+      border-radius: 10px;
+      padding: 15px;
+      background-color: rgba(255,255,255,0.9);
+    }
+
+    .hero-story-box {
+      border: 2px solid black;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 20px;
+      background-color: rgba(255,255,255,0.9);
+    }
+
+    [data-bs-theme="dark"] .image-label {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+
+    [data-bs-theme="dark"] .hero-text-box,
+    [data-bs-theme="dark"] .hero-story-box {
+      background-color: rgba(30, 30, 30, 0.9);
+      color: white;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px 10px;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.5);
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="d-flex justify-content-between align-items-center p-3 border-bottom">
+    <div></div>
+    <div class="d-flex justify-content-center">
+      <a href="index.html" class="header-link">Homepage</a>
+      <a href="characters.html" class="header-link">Characters</a>
+    </div>
+    <button class="toggle-btn" onclick="toggleTheme()">🌓</button>
+  </header>
+
+  <!-- Hero Grid Section -->
+  <section class="container my-5">
+    <div class="row g-4 justify-content-center">
+      <!-- Hero Thumbnails -->
+      <div class="col-md-6 col-lg-5">
+        <div class="image-box" data-bs-toggle="modal" data-bs-target="#modalMidoriya">
+          <img src="images/Snimka zaslona 2025-05-21 224608.png" alt="Midoriya">
+          <div class="image-label">Midoriya</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-5">
+        <div class="image-box" data-bs-toggle="modal" data-bs-target="#modalBakugo">
+          <img src="images/Snimka zaslona 2025-05-21 224632.png" alt="Bakugo">
+          <div class="image-label">Bakugo</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-5">
+        <div class="image-box" data-bs-toggle="modal" data-bs-target="#modalUraraka">
+          <img src="images/Snimka zaslona 2025-05-21 224652.png" alt="Uraraka">
+          <div class="image-label">Uraraka</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-5">
+        <div class="image-box" data-bs-toggle="modal" data-bs-target="#modalShoji">
+          <img src="images/Snimka zaslona 2025-05-21 224709.png" alt="Shoji">
+          <div class="image-label">Shoji</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Midoriya Modal -->
+  <div class="modal fade" id="modalMidoriya" tabindex="-1" aria-labelledby="midoriyaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Izuku Midoriya - Quirk: One For All</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="hero-card-info">
+            <div class="hero-img-box">
+              <img src="images/Deku.jpg" alt="Midoriya Full">
+            </div>
+            <div class="hero-text-box">
+              <p><strong>Hero Name:</strong> Deku</p>
+              <p><strong>Real Name:</strong> Izuku Midoriya</p>
+              <p><strong>Quirk:</strong> One For All</p>
+              <p><strong>U.A. Class:</strong> 1-A</p>
+              <p><strong>Friends:</strong> Uraraka, Iida, Todoroki</p>
+              <p><strong>Enemies:</strong> Shigaraki, League of Villains</p>
+            </div>
+          </div>
+          <div class="hero-story-box">
+            <h5>Story</h5>
+            <p>
+              Midoriya was born Quirkless in a world where 80% of the population has powers. Despite this, he always dreamed of becoming a hero like All Might. 
+              His determination paid off when All Might saw his potential and passed on the legendary Quirk "One For All" to him. 
+              Midoriya enrolled in U.A. High School and quickly proved himself through hard training, intelligence, and a strong sense of justice.
+              He constantly pushes his limits, striving to protect others and live up to the legacy of All Might while forging deep bonds with his classmates and confronting powerful enemies.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bakugo Modal -->
+<div class="modal fade" id="modalBakugo" tabindex="-1" aria-labelledby="modalBakugoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Katsuki Bakugo - Quirk: Explosion</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="hero-card-info">
+          <div class="hero-img-box">
+            <img src="images/Bakugou.jpg" alt="Bakugo Full">
+          </div>
+          <div class="hero-text-box">
+            <p><strong>Hero Name:</strong> Great Explosion Murder God Dynamight</p>
+            <p><strong>Real Name:</strong> Katsuki Bakugo</p>
+            <p><strong>Quirk:</strong> Explosion</p>
+            <p><strong>U.A. Class:</strong> 1-A</p>
+            <p><strong>Friends:</strong> Kirishima, Midoriya (rival)</p>
+            <p><strong>Enemies:</strong> League of Villains</p>
+          </div>
+        </div>
+        <div class="hero-story-box">
+          <h5>Story</h5>
+          <p>
+            Bakugo is known for his aggressive personality and powerful quirk. Despite his hotheaded nature, he is incredibly talented and intelligent, often scoring at the top of his class. Over time, he learns the value of teamwork and humility. His rivalry with Midoriya drives both to improve constantly.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Uraraka Modal -->
+<div class="modal fade" id="modalUraraka" tabindex="-1" aria-labelledby="modalUrarakaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Ochaco Uraraka - Quirk: Zero Gravity</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="hero-card-info">
+          <div class="hero-img-box">
+            <img src="images/uraraka.jpg" alt="Uraraka Full">
+          </div>
+          <div class="hero-text-box">
+            <p><strong>Hero Name:</strong> Uravity</p>
+            <p><strong>Real Name:</strong> Ochaco Uraraka</p>
+            <p><strong>Quirk:</strong> Zero Gravity</p>
+            <p><strong>U.A. Class:</strong> 1-A</p>
+            <p><strong>Friends:</strong> Midoriya, Iida, Tsuyu</p>
+            <p><strong>Enemies:</strong> League of Villains</p>
+          </div>
+        </div>
+        <div class="hero-story-box">
+          <h5>Story</h5>
+          <p>
+            Uraraka is a kind-hearted and determined hero-in-training. Her quirk allows her to make objects weightless by touching them. She’s inspired by her family’s financial struggles to become a pro hero and support them. She forms close bonds with her classmates and grows stronger emotionally and physically.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Shoji Modal -->
+<div class="modal fade" id="modalShoji" tabindex="-1" aria-labelledby="modalShojiLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Mezo Shoji - Quirk: Dupli-Arms</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="hero-card-info">
+          <div class="hero-img-box">
+            <img src="images/shoji.jpg" alt="Shoji Full">
+          </div>
+          <div class="hero-text-box">
+            <p><strong>Hero Name:</strong> Tentacole</p>
+            <p><strong>Real Name:</strong> Mezo Shoji</p>
+            <p><strong>Quirk:</strong> Dupli-Arms</p>
+            <p><strong>U.A. Class:</strong> 1-A</p>
+            <p><strong>Friends:</strong> Tokoyami, Jiro</p>
+            <p><strong>Enemies:</strong> Villains during forest training</p>
+          </div>
+        </div>
+        <div class="hero-story-box">
+          <h5>Story</h5>
+          <p>
+            Shoji is a quiet and respectful student whose quirk allows him to replicate parts of his body like eyes and ears using his tentacle-like arms. Despite his intimidating appearance, he is compassionate and protective of his classmates. He excels in reconnaissance and support roles.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>© 2025 AnimeHub. All rights reserved.</p>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const isLight = html.getAttribute("data-bs-theme") === "light";
+      html.setAttribute("data-bs-theme", isLight ? "dark" : "light");
+    }
+  </script>
+</body>
+</html>

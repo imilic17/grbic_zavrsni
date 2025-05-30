@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Characters - My Hero Academia</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Fixed Side Backgrounds */
+    .side-bg {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      width: calc((100vw - 900px) / 2);
+      min-width: 120px;
+      max-width: 400px;
+      z-index: 0;
+      background-repeat: no-repeat;
+      background-size: cover;
+      pointer-events: none;
+      height: 100vh;
+    }
+    .side-bg.left {
+      left: 0;
+      background-image: url('images/Left_side_background_image.jpg');
+      background-position: left center;
+    }
+    .side-bg.right {
+      right: 0;
+      background-image: url('images/Right_side_background_image.jpg');
+      background-position: right center;
+    }
+
+    /* Middle background image */
+    body.characters-page::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -2;
+      background: url('images/Background_image_characters.jpg') center center no-repeat;
+      background-size: contain;
+      opacity: 0.18;
+      pointer-events: none;
+    }
+
+    /* Section background overlay */
+    .char-section-bg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      pointer-events: none;
+    }
+    .char-section-bg-inner {
+      width: 100%;
+      max-width: 900px;
+      height: 100%;
+      background: url('images/Background_image_characters.jpg') center center no-repeat;
+      background-size: contain;
+      opacity: 0.18;
+    }
+
+    .char-section {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .image-box {
+      border: 3px solid black;
+      border-radius: 12px;
+      overflow: hidden;
+      max-width: 100%;
+    }
+
+    .image-box img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .text-box {
+      border: 2px solid black;
+      background-color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(4px);
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    [data-bs-theme="dark"] .text-box {
+      background-color: rgba(30, 30, 30, 0.85);
+      color: white;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: var(--bs-body-bg);
+    }
+
+    .header-link {
+      border: 1px solid black;
+      padding: 6px 12px;
+      margin: 0 10px;
+      text-decoration: none;
+      color: inherit;
+      border-radius: 6px;
+      transition: background-color 0.3s;
+    }
+
+    .header-link:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    .toggle-btn {
+      border: 1px solid black;
+      padding: 6px 10px;
+      background-color: transparent;
+      border-radius: 6px;
+    }
+
+    /* New inline button style */
+.btn-box {
+  border: 2px solid black;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  color: inherit;
+  background-color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+.btn-box:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Dark theme support */
+[data-bs-theme="dark"] .btn-box {
+  background-color: rgba(40, 40, 40, 0.85);
+  color: white;
+  border-color: white;
+}
+
+[data-bs-theme="dark"] .btn-box:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+    .btn-left {
+      left: 40px;
+    }
+
+    .btn-right {
+      right: 40px;
+    }
+
+    .btn-fixed:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    [data-bs-theme="dark"] .btn-fixed {
+      background-color: rgba(40, 40, 40, 0.8);
+      color: white;
+      border-color: white;
+    }
+
+    [data-bs-theme="dark"] .btn-fixed:hover {  
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px 10px;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.5);
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body class="characters-page">
+
+  <!-- Header -->
+  <header class="d-flex justify-content-between align-items-center p-3 border-bottom">
+    <div></div>
+    <div class="d-flex justify-content-center">
+      <a href="index.html" class="header-link">Homepage</a>
+      <a href="characters.html" class="header-link">Characters</a>
+    </div>
+    <button class="toggle-btn" onclick="toggleTheme()">🌓</button>
+  </header>
+
+  <!-- Inline Buttons Under Header -->
+<div class="container d-flex justify-content-center gap-4 mt-3 mb-4">
+  <a href="villains.html" class="btn-box">Villains</a>
+  <a href="heroes.html" class="btn-box">Heroes</a>
+</div>
+
+
+  <!-- Section 1: Class 1-A -->
+  <section style="position:relative;">
+    <div class="char-section-bg">
+      <div class="char-section-bg-inner"></div>
+    </div>
+    <div class="side-bg left"></div>
+    <div class="side-bg right"></div>
+    <div class="char-section" data-aos="fade-down">
+      <div class="image-box">
+        <img src="images/Class_1-A.jpg" alt="Class 1-A">
+      </div>
+      <div class="text-box">
+        <h2>Class 1-A Students</h2>
+        <p>
+          Class 1-A is the spotlight class at U.A. High School. Its students have been put through some of the toughest challenges, making them strong future heroes.
+          Characters like Izuku Midoriya, Katsuki Bakugo, Shoto Todoroki, and Ochaco Uraraka show rapid growth and adaptability. Their journey has been marked by fierce training, villain encounters, and intense competitions.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Class 1-B -->
+  <section style="position:relative;">
+    <div class="char-section-bg">
+      <div class="char-section-bg-inner"></div>
+    </div>
+    <div class="side-bg left"></div>
+    <div class="side-bg right"></div>
+    <div class="char-section" data-aos="fade-up">
+      <div class="image-box">
+        <img src="images/Class_1-B.jpg" alt="Class 1-B">
+      </div>
+      <div class="text-box">
+        <h2>Class 1-B Students</h2>
+        <p>
+          Though often outshined by Class 1-A, Class 1-B boasts many powerful students with unique quirks and strategic minds.
+          They are known for their unity, training discipline, and leadership under Vlad King. Students like Monoma and Kendo have stood out in multiple joint training battles, proving their capabilities as future pro heroes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: U.A. Teachers -->
+  <section style="position:relative;">
+    <div class="char-section-bg">
+      <div class="char-section-bg-inner"></div>
+    </div>
+    <div class="side-bg left"></div>
+    <div class="side-bg right"></div>
+    <div class="char-section" data-aos="fade-down">
+      <div class="image-box">
+        <img src="images/U.A._High_Teachers.jpg" alt="U.A. Teachers">
+      </div>
+      <div class="text-box">
+        <h2>U.A. High School Teachers</h2>
+        <p>
+          The staff at U.A. High are more than teachers—they're heroes. With All Might retired but still guiding young heroes, and Aizawa’s strict but effective teaching style, students receive the best mentorship available.
+          Other instructors like Midnight, Present Mic, Cementoss, and Ectoplasm all help train students in combat, ethics, and rescue missions, preparing them for real-world heroism.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>© 2025 AnimeHub. All rights reserved.</p>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800 });
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const isLight = html.getAttribute("data-bs-theme") === "light";
+      html.setAttribute("data-bs-theme", isLight ? "dark" : "light");
+    }
+  </script>
+</body>
+</html>

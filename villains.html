@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Villains - My Hero Academia</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: url('images/Villains_background_image.jpg') center center / cover no-repeat fixed;
+      color: black;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: var(--bs-body-bg);
+    }
+
+    .header-link {
+      border: 1px solid black;
+      padding: 6px 12px;
+      margin: 0 10px;
+      text-decoration: none;
+      color: inherit;
+      border-radius: 6px;
+      transition: background-color 0.3s;
+    }
+
+    .header-link:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    .toggle-btn {
+      border: 1px solid black;
+      padding: 6px 10px;
+      background-color: transparent;
+      border-radius: 6px;
+    }
+
+    .image-box {
+      position: relative;
+      border: 2px solid black;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+    }
+
+    .image-box:hover {
+      transform: scale(1.02);
+    }
+
+    .image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .image-label {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      padding: 5px;
+    }
+
+    .hero-card-info {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .hero-img-box {
+      border: 2px solid black;
+      border-radius: 10px;
+      overflow: hidden;
+      flex: 0 0 250px;
+    }
+
+    .hero-img-box img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .hero-text-box {
+      flex: 1;
+      border: 2px solid black;
+      border-radius: 10px;
+      padding: 15px;
+      background-color: rgba(255,255,255,0.9);
+    }
+
+    .hero-story-box {
+      border: 2px solid black;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 20px;
+      background-color: rgba(255,255,255,0.9);
+    }
+
+    [data-bs-theme="dark"] .image-label {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+
+    [data-bs-theme="dark"] .hero-text-box,
+    [data-bs-theme="dark"] .hero-story-box {
+      background-color: rgba(30, 30, 30, 0.9);
+      color: white;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px 10px;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.5);
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="d-flex justify-content-between align-items-center p-3 border-bottom">
+    <div></div>
+    <div class="d-flex justify-content-center">
+      <a href="index.html" class="header-link">Homepage</a>
+      <a href="characters.html" class="header-link">Characters</a>
+    </div>
+    <button class="toggle-btn" onclick="toggleTheme()">🌓</button>
+  </header>
+
+  <!-- Hero Grid Section -->
+  <section class="container my-5">
+    <div class="row g-4 justify-content-center">
+      <!-- Hero Thumbnails -->
+      <div class="col-md-6 col-lg-5">
+        <div class="image-box" data-bs-toggle="modal" data-bs-target="#modalToga">
+          <img src="images/Toga.png" alt="Toga">
+          <div class="image-label">Toga</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-5">
+        <div class="image-box" data-bs-toggle="modal" data-bs-target="#modalShigaraki">
+          <img src="images/Shigaraki.png" alt="Shigaraki">
+          <div class="image-label">Shigaraki</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-5">
+        <div class="image-box" data-bs-toggle="modal" data-bs-target="#modalAllForOne">
+          <img src="images/All_for_one.png" alt="All For One">
+          <div class="image-label">All For One</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-5">
+        <div class="image-box" data-bs-toggle="modal" data-bs-target="#modalNagant">
+          <img src="images/Nagant.png" alt="Lady Nagant">
+          <div class="image-label">Lady Nagant</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Toga Modal -->
+  <div class="modal fade" id="modalToga" tabindex="-1" aria-labelledby="togaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Himiko Toga - Quirk: Transform</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+  <div class="hero-card-info">
+    <div class="hero-img-box">
+      <img src="images/Toga.jpg" alt="Himiko Toga Full">
+    </div>
+    <div class="hero-text-box">
+      <p><strong>Villain Name:</strong> Toga</p>
+      <p><strong>Real Name:</strong> Himiko Toga</p>
+      <p><strong>Quirk:</strong> Transform</p>
+      <p><strong>Friends:</strong> Twice, Dabi</p>
+      <p><strong>Enemies:</strong> U.A. Students, Pro Heroes</p>
+    </div>
+  </div>
+  <div class="hero-story-box">
+    <h5>Story</h5>
+    <p>
+      Toga is a member of the League of Villains. Her quirk allows her to transform into others by consuming their blood.
+      She's obsessed with love and has a twisted sense of affection. Despite her violent tendencies, she's deeply loyal to those she cares about.
+    </p>
+  </div>
+</div>
+
+      </div>
+    </div>
+  </div>
+  <!-- Shigaraki Modal -->
+<div class="modal fade" id="modalShigaraki" tabindex="-1" aria-labelledby="modalShigarakiLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Tenko Shimura - Quirk: Decay</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+  <div class="hero-card-info">
+    <div class="hero-img-box">
+      <img src="images/Shigaraki_full_image.jpg" alt="Tomura Shigaraki Full">
+    </div>
+    <div class="hero-text-box">
+      <p><strong>Villain Name:</strong> Shigaraki</p>
+      <p><strong>Real Name:</strong> Tenko Shimura</p>
+      <p><strong>Quirk:</strong> Decay</p>
+      <p><strong>Friends:</strong> League of Villains</p>
+      <p><strong>Enemies:</strong> All Might, U.A. Students</p>
+    </div>
+  </div>
+  <div class="hero-story-box">
+    <h5>Story</h5>
+    <p>
+      Shigaraki is the leader of the League of Villains. With his Decay quirk, anything he touches with all fingers crumbles to dust.
+      He aims to bring chaos and destroy hero society, continuing the legacy of his master, All For One.
+    </p>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Uraraka Modal -->
+<div class="modal fade" id="modalAllForOne" tabindex="-1" aria-labelledby="modalAllForOneLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">All For One - Quirk: All For One</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+  <div class="hero-card-info">
+    <div class="hero-img-box">
+      <img src="images/All_For_One.jpg" alt="All For One Full">
+    </div>
+    <div class="hero-text-box">
+      <p><strong>Villain Name:</strong> All For One</p>
+      <p><strong>Real Name:</strong> Unknown</p>
+      <p><strong>Quirk:</strong> All For One</p>
+      <p><strong>Friends:</strong> Tomura Shigaraki</p>
+      <p><strong>Enemies:</strong> All Might</p>
+    </div>
+  </div>
+  <div class="hero-story-box">
+    <h5>Story</h5>
+    <p>
+      All For One is the mysterious and powerful villain who can steal and transfer quirks. He was once the most feared threat in society and serves as a mentor to Shigaraki.
+      Even after being heavily injured, he continues to influence the villain world from the shadows.
+    </p>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Tsutsumi Modal -->
+<div class="modal fade" id="modalNagant" tabindex="-1" aria-labelledby="modalNagantLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Kaina Tsutsumi - Quirk: Long Range</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+  <div class="hero-card-info">
+    <div class="hero-img-box">
+      <img src="images/Lady_Nagant.jpg" alt="Kaina Tsutsumi Full">
+    </div>
+    <div class="hero-text-box">
+      <p><strong>Villain Name:</strong> Lady Nagant</p>
+      <p><strong>Real Name:</strong> Kaina Tsutsumi</p>
+      <p><strong>Quirk:</strong> Long Range</p>
+      <p><strong>Friends:</strong> All For One (former ally)</p>
+      <p><strong>Enemies:</strong> Midoriya, Hero Commission</p>
+    </div>
+  </div>
+  <div class="hero-story-box">
+    <h5>Story</h5>
+    <p>
+      Once a top Pro Hero, Kaina became disillusioned with hero society’s corruption. After going rogue, she became the feared villain known as Lady Nagant.
+      A former sniper with a rifle-like arm and elite training, she poses a serious threat to heroes even after her break with All For One.
+    </p>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>© 2025 AnimeHub. All rights reserved.</p>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const isLight = html.getAttribute("data-bs-theme") === "light";
+      html.setAttribute("data-bs-theme", isLight ? "dark" : "light");
+    }
+  </script>
+</body>
+</html>
